@@ -41,4 +41,43 @@ let moverIzquierda = function(){
     limpiarCanva();
     graficarGato();
     graficarComida();
+    detectarColision();
 }
+
+let moverDerecha = function(){
+    gatoX = gatoX + 10;
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+    detectarColision();
+}
+
+let moverArriba = function(){
+    gatoY = gatoY - 10;
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+    detectarColision();
+}
+
+let moverAbajo = function(){
+    gatoY = gatoY + 10;
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+    detectarColision();
+
+}
+
+let detectarColision = function(){
+    if(
+        gatoX < comidaX + ANCHO_COMIDA &&
+        gatoX + ANCHO_GATO > comidaX &&
+        gatoY < comidaY + ALTO_COMIDA &&
+        gatoY + ALTO_GATO > comidaY
+    ){
+        alert("¡El gato comió!");
+    }
+}
+
+
