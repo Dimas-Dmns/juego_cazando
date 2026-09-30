@@ -31,3 +31,14 @@ let iniciarJuego = function(){
     graficarGato();
     graficarComida();
 }
+
+let limpiarCanva = function(){
+    contexto.clearRect(0, 0, 500, 500);
+}
+
+let moverIzquierda = function(){
+    gatoX = gatoX - 10;
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+}
