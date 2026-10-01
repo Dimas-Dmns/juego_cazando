@@ -80,12 +80,13 @@ let detectarColision = function(){
         gatoY < comidaY + ALTO_COMIDA &&
         gatoY + ALTO_GATO > comidaY
     ){
-        alert("¡El gato comió!");
         puntos = puntos + 1;
         mostrarEnSpan("puntos", puntos);
+        tiempo=10;
+        mostrarEnSpan("tiempo",tiempo);
         if(puntos >= 6){
             clearInterval(intervalo);
-            alert("¡WINER!");
+            alert("¡WINNER!");
             return;
         }
         comidaX = generarAleatorio(0, 500 - ANCHO_COMIDA);
@@ -104,6 +105,22 @@ let restarTiempo = function(){
         alert("GAME OVER!");
         return;
     }
+}
+
+let reiniciarJuego = function(){
+    clearInterval(intervalo);
+    puntos = 0;
+    tiempo = 10;
+    mostrarEnSpan("puntos", puntos);
+    mostrarEnSpan("tiempo", tiempo);
+    gatoX = (500 - ANCHO_GATO) / 2;
+    gatoY = (500 - ALTO_GATO) / 2;
+    comidaX = 500 - ANCHO_COMIDA;
+    comidaY = 500 - ALTO_COMIDA;
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+    intervalo = setInterval(restarTiempo, 1000);
 }
 
 
