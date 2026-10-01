@@ -83,6 +83,11 @@ let detectarColision = function(){
         alert("¡El gato comió!");
         puntos = puntos + 1;
         mostrarEnSpan("puntos", puntos);
+        if(puntos >= 6){
+            clearInterval(intervalo);
+            alert("¡WINER!");
+            return;
+        }
         comidaX = generarAleatorio(0, 500 - ANCHO_COMIDA);
         comidaY = generarAleatorio(0, 500 - ALTO_COMIDA);
         limpiarCanva();
@@ -96,7 +101,8 @@ let restarTiempo = function(){
     mostrarEnSpan("tiempo", tiempo);
     if(tiempo <= 0){
         clearInterval(intervalo);
-        alert("¡Se acabó el tiempo!");
+        alert("GAME OVER!");
+        return;
     }
 }
 
