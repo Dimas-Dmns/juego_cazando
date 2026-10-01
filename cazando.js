@@ -8,6 +8,8 @@ const ALTO_COMIDA = 20;
 const ANCHO_COMIDA = 20;
 let contexto;
 let puntos = 0 ;
+let tiempo = 10;
+let intervalo;
 
 let graficarRectangulo = function(x, y, ancho, alto, color){
     contexto.fillStyle = color;
@@ -31,6 +33,7 @@ let iniciarJuego = function(){
     comidaY = 500 - ALTO_COMIDA;
     graficarGato();
     graficarComida();
+    intervalo = setInterval(restarTiempo, 1000);
 }
 
 let limpiarCanva = function(){
@@ -85,6 +88,15 @@ let detectarColision = function(){
         limpiarCanva();
         graficarGato();
         graficarComida();
+    }
+}
+
+let restarTiempo = function(){
+    tiempo = tiempo - 1;
+    mostrarEnSpan("tiempo", tiempo);
+    if(tiempo <= 0){
+        clearInterval(intervalo);
+        alert("¡Se acabó el tiempo!");
     }
 }
 
