@@ -1,34 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
-  <title>Juego Cazando</title>
-  <link rel="stylesheet" href="cazando.css">
-  <script src="utili.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Juego Cazando">
+    <title>Juego Cazando | Summer World</title>
+    <link rel="stylesheet" href="cazando.css">
 </head>
+
 <body onload="iniciarJuego()">
 
-  <h1>Juego Cazando</h1>
-  <p>Autor: Dimas</p>
-<canvas id="areaJuego" width="500" height="500"></canvas>
+    <main class="contenedor">
 
-  <div class="controles">
-    <button onclick="moverArriba()">⬆</button>
-    <br>
-    <button onclick="moverIzquierda()">⬅</button>
-    <button onclick="moverAbajo()">⬇</button>
-    <button onclick="moverDerecha()">➡</button>
-  </div>
+        <header class="encabezado">
+            <span class="etiqueta">DIMAS VERA</span>
+            <h1>JUEGO <span>CAZANDO</span></h1>
+            <p>¡Explora, atrapa y disfruta del verano!</p>
+        </header>
 
+        <section class="estadisticas">
+            <div class="tarjeta-estadistica">
+                <span class="icono">✦</span>
+                <div>
+                    <small>PUNTOS</small>
+                    <strong id="puntos">0</strong>
+                </div>
+            </div>
 
-  <div class="panel">
-    <span>Puntos: <span id="puntos">0</span></span>
-    <span>Tiempo: <span id="tiempo">10</span></span>
-  </div>
+            <div class="tarjeta-estadistica">
+                <span class="icono">◷</span>
+                <div>
+                    <small>TIEMPO</small>
+                    <strong><span id="tiempo">10</span>s</strong>
+                </div>
+            </div>
+        </section>
 
-  <p id="mensaje"></p>
+        <section class="zona-juego">
 
-  <button onclick="reiniciarJuego()">Reiniciar</button>
+            <div class="marco-canvas">
 
-<script src="cazando.js"></script>
+                <div class="indicador">
+                    <span class="indicador-punto"></span>
+                    SUMMER WORLD
+                </div>
+
+                <canvas id="areaJuego" width="500" height="500"></canvas>
+
+            </div>
+
+        </section>
+
+        <p id="mensaje" aria-live="polite">
+            ¡Atrapa la comida antes de que termine el tiempo!
+        </p>
+
+        <section class="controles">
+
+            <p class="titulo-controles">CONTROLES</p>
+
+            <div class="control-superior">
+                <button type="button" onclick="moverArriba()">▲</button>
+            </div>
+
+            <div class="control-inferior">
+                <button type="button" onclick="moverIzquierda()">◀</button>
+                <button type="button" onclick="moverAbajo()">▼</button>
+                <button type="button" onclick="moverDerecha()">▶</button>
+            </div>
+
+            <button type="button" class="boton-reiniciar" onclick="iniciarJuego()">
+                ↻ REINICIAR JUEGO
+            </button>
+
+            <p class="ayuda">También puedes utilizar las flechas del teclado o WASD.</p>
+
+        </section>
+
+        <footer>
+            <p>☀ SUMMER DIMAS VERA WORLD ☀</p>
+            <small>Un pequeño mundo lleno de aventuras.</small>
+        </footer>
+
+    </main>
+
+    <script src="cazando.js"></script>
+
 </body>
 </html>
+
